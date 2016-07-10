@@ -102,6 +102,8 @@ class DatabaseInstallation {
 		MongoDBConfig mongoDBConfig;
 		String ip;
 		String port;
+		String user;
+		char[] pw;
 
 		do {
 			Console console = System.console();
@@ -111,9 +113,18 @@ class DatabaseInstallation {
 			log.info("Please enter the port");
 			port = console.readLine();
 
+			log.info("Please enter your username");
+			user = console.readLine();
+
+			log.info("Please enter your password");
+			pw = console.readPassword();
+
 			mongoDBConfig = new MongoDBConfig();
 			mongoDBConfig.setIp(ip);
 			mongoDBConfig.setPort(port);
+			mongoDBConfig.setUser(user);
+			mongoDBConfig.setPw(new String(pw));
+
 			log.info("Please wait");
 		} while (!MongoDBConnectionTest.connectionTest(mongoDBConfig));
 		return mongoDBConfig;

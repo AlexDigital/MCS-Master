@@ -18,15 +18,29 @@
 
 package net.mcsproject.master.configuration.database;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class MongoDBConfig extends DatabaseConfig {
 
+	@Getter(AccessLevel.PUBLIC)
+	@Setter(AccessLevel.PUBLIC)
 	private String ip;
 
+	@Getter(AccessLevel.PUBLIC)
+	@Setter(AccessLevel.PUBLIC)
 	private String port;
 
+	@Setter(AccessLevel.PUBLIC)
+	@Getter(AccessLevel.PUBLIC)
+	private String db;
+
+	@Setter(AccessLevel.PUBLIC)
+	@Getter(AccessLevel.PUBLIC)
+	private String user;
+
+	@Setter(AccessLevel.PUBLIC)
+	@Getter(AccessLevel.PUBLIC)
+	private String pw;
 }
