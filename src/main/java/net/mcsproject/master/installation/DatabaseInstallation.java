@@ -103,6 +103,7 @@ class DatabaseInstallation {
 		String ip;
 		String port;
 		String user;
+		String db;
 		char[] pw;
 
 		do {
@@ -112,6 +113,9 @@ class DatabaseInstallation {
 
 			log.info("Please enter the port");
 			port = console.readLine();
+
+			log.info("Please enter the database");
+			db = console.readLine();
 
 			log.info("Please enter your username");
 			user = console.readLine();
@@ -123,6 +127,7 @@ class DatabaseInstallation {
 			mongoDBConfig.setIp(ip);
 			mongoDBConfig.setPort(port);
 			mongoDBConfig.setUser(user);
+			mongoDBConfig.setDb(db);
 			mongoDBConfig.setPw(new String(pw));
 
 			log.info("Please wait");
