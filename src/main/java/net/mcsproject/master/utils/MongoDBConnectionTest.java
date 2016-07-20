@@ -31,7 +31,7 @@ public class MongoDBConnectionTest {
 		boolean success = true;
 		MongoClient mongoClient = null;
 		try {
-			mongoClient = new MongoClient(new MongoClientURI("mongodb://" + mongoDBConfig.getIp() + ":" + mongoDBConfig.getPort()));
+			mongoClient = new MongoClient(new MongoClientURI("mongodb://"+ mongoDBConfig.getUser() + ":" + mongoDBConfig.getPw() + "@" +  mongoDBConfig.getIp() + ":" + mongoDBConfig.getPort()));
 			mongoClient.getDatabaseNames();
 		} catch (MongoException e) {
 			success = false;
@@ -41,6 +41,7 @@ public class MongoDBConnectionTest {
 			}
 			Logging.enableMongoDBLogging();
 		}
+
 		return success;
 	}
 }
